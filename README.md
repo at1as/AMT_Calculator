@@ -7,21 +7,26 @@ As I couldn't find a satisfactory AMT calculator online (with reliable outputs),
 
 ### Usage
 
-Modify the variables in run.rb:
-```ruby
-income      = 222_222   # Income + all taxable benefits (cafateria food, etc). Do not include RSUs here.
-rsu_income  = 33_333    # The `value` of RSUs vested (ignore the withholding taxes and state their full value)
-iso_gains   = 44_444    # The net gains of ISO shares 
-pension     = 11_111    # The quantity you put into a 401k this fiscal year (do not include employer contributions)
+Modify the values in `tax_details.json` to fit your tax situation:
+```
+{
+	"income":           222222, 	// Income + all taxable benefits (cafateria food, etc). Do not include RSUs here.
+	"iso_share_gains":   44444,		// The `value` of RSUs vested (ignore the withholding taxes and state their full value)
+	"rsu_income":        33333,		// The net gains of ISO shares
+	"pension":           11111,		// The quantity you put into a 401k this fiscal year (do not include employer contributions)
+	"verbose":            true		// Whether to print details of the calculations
+}
 ```
 
 And then run the script
 ```
 $ ruby run.rb
 
-  Note: this is a script which seeks only to provide insight into broad tax trends.
-  The output will be unreliable and does not provide any legal or tax advice.
-  Consult a tax lawyer to discuss your situtation.
+*** AMT Calculator 0.0.1 ***
+
+Note: this is a script which seeks only to provide insight into broad tax trends.
+The output will be unreliable and does not provide any legal or tax advice.
+Consult a tax lawyer to discuss your situtation.
 
 ---- TAX INPUTS ----
 Income: $222222
